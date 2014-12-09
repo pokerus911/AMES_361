@@ -24,7 +24,7 @@ public class AppearancePoll {
 	private String myHairColor, myHairLength;
 	private boolean hasGlasses;
 	private static String[] allHairColors = new String[] { "Black", "Blonde",
-			"Blue", "Brown", "Green", "Orange", "Pink", "Purple", "Red",
+			"Blue", "Brown", "Green", "Pink", "Purple", "Red",
 			"Silver" };
 	private static String[] allHairLengths = new String[] { "Short", "Medium",
 			"Long" };
