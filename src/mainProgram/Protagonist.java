@@ -85,7 +85,7 @@ public class Protagonist {
 		return myPicture;
 	}
 
-	public String getPersonalityDescription() {
-		return myPersonality.toString();
+	public ImageView getPersonalityDescription() {
+		return myPersonality.getImage();
 	}
 }

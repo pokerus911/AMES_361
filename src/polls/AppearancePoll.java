@@ -98,7 +98,7 @@ public class AppearancePoll {
 					System.out.println("Set image");
 				characterInfo.update();
 				root.add(characterInfo.getBorderPane(), 0, 1);
-				stage.close();
+				//stage.close();
 			}
 
 			private ImageView getSimilarImage(Protagonist myChar) {

@@ -28,7 +28,7 @@ public enum Personality {
 	public ImageView getImage(){
 		switch (this) {
 		case NORMAL:
-            return new ImageView();
+            return null;
        case TSUNDERE:
             return new ImageView(new Image(getClass().getResourceAsStream("/images/Tsundere.png")));
        case YANDERE:

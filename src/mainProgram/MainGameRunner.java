@@ -22,7 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public class MainGameRunner extends Application {
-	public static final int XDIMENSION = 760, YDIMENSION = 530;
+	public static final int XDIMENSION = 880, YDIMENSION = 530;
 	public Scene characterInfoDisplay;
 	public ToolBar mainToolBar;
 	public static Protagonist myChar;
