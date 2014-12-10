@@ -62,7 +62,6 @@ public class MainGameRunner extends Application {
 		MenuBar mainMenu = new MenuBar();
 
 		Menu editMenu = new Menu("Edit");
-		Menu newMenu = new Menu("Generate");
 
 		MenuItem editAppearance = new MenuItem("Edit Character Appearance");
 		editAppearance.setOnAction(new EventHandler<ActionEvent>() {
@@ -82,27 +81,8 @@ public class MainGameRunner extends Application {
 
 		});
 
-		MenuItem newBackstory = new MenuItem("Character Backstory");
-		newBackstory.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				myBuilder.generateBackstory(myChar);
-			}
-
-		});
-
-		MenuItem newRomance = new MenuItem("Romantic Scenario");
-		newRomance.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				myBuilder.generateRomance(myChar);
-			}
-
-		});
-
 		editMenu.getItems().addAll(editAppearance, editPersonality);
-		newMenu.getItems().addAll(newBackstory, newRomance);
-		mainMenu.getMenus().addAll(editMenu, newMenu);
+		mainMenu.getMenus().addAll(editMenu);
 		toolBar.getItems().addAll(mainMenu);
 		toolBar.setPrefWidth(XDIMENSION);
 		return toolBar;
