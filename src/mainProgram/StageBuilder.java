@@ -25,7 +25,7 @@ public class StageBuilder {
 		return bpane;
 	}
 
-	public void editAppearance(CharacterInfoDisplay characterInfo, GridPane root) {
+	public void editAppearance(BorderPane bottomContent, CharacterInfoDisplay characterInfo, GridPane root) {
 		System.out.println("Appearance");
 		Stage pollStage = new Stage();
 		pollStage.setTitle("Edit Appearance!");
@@ -34,18 +34,21 @@ public class StageBuilder {
 
 		AppearancePoll appearancePoll = new AppearancePoll();
 
-		pollStage.setScene(appearancePoll.makeAppearancePoll(pollStage, characterInfo, root));
+		pollStage.setScene(appearancePoll.makeAppearancePoll(bottomContent, pollStage,
+				characterInfo, root));
 		pollStage.show();
 
 	}
 
-	public void editPersonality(CharacterInfoDisplay characterInfo, GridPane root) {
+	public void editPersonality(BorderPane bottomContent, CharacterInfoDisplay characterInfo,
+			GridPane root) {
 		System.out.println("Personality");
 		Stage pollStage = new Stage();
 		pollStage.setTitle("Personality Quiz!");
-		
+
 		PersonalityPoll personalityPoll = new PersonalityPoll();
-		pollStage.setScene(personalityPoll.makePersonalityPoll(pollStage, characterInfo, root));
+		pollStage.setScene(personalityPoll.makePersonalityPoll(bottomContent, pollStage,
+				characterInfo, root));
 		pollStage.setHeight(450);
 		pollStage.show();
 	}

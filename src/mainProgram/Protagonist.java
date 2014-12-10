@@ -16,14 +16,15 @@ public class Protagonist {
 		hasGlasses = false;
 		myPicture = new ImageView();
 	}
-	
-	public Protagonist(String hairColor, String hairLength, boolean glasses){
+
+	public Protagonist(String hairColor, String hairLength, boolean glasses) {
 		myHairColor = hairColor;
 		myHairLength = hairLength;
 		hasGlasses = glasses;
 	}
-	
-	public Protagonist(String hairColor, String hairLength, boolean glasses, Personality personality){
+
+	public Protagonist(String hairColor, String hairLength, boolean glasses,
+			Personality personality) {
 		myHairColor = hairColor;
 		myHairLength = hairLength;
 		hasGlasses = glasses;

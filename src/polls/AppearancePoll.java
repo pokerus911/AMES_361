@@ -24,8 +24,7 @@ public class AppearancePoll {
 	private String myHairColor, myHairLength;
 	private boolean hasGlasses;
 	private static String[] allHairColors = new String[] { "Black", "Blonde",
-			"Blue", "Brown", "Green", "Pink", "Purple", "Red",
-			"Silver" };
+			"Blue", "Brown", "Green", "Pink", "Purple", "Red", "Silver" };
 	private static String[] allHairLengths = new String[] { "Short", "Medium",
 			"Long" };
 
@@ -39,11 +38,11 @@ public class AppearancePoll {
 			hasGlasses = false;
 	}
 
-	public Scene makeAppearancePoll(Stage stage, CharacterInfoDisplay characterInfo, GridPane root) {
+	public Scene makeAppearancePoll(BorderPane bottomContent, Stage stage,
+			CharacterInfoDisplay characterInfo, GridPane root) {
 		GridPane pollPane = new GridPane();
 		pollPane.setPadding(new Insets(15, 12, 15, 12));
 		pollPane.setHgap(15);
-		// pollPane.setGridLinesVisible(true);
 		pollPane.add(new Label("Hair Color"), 0, 0);
 
 		ToggleGroup hairColor = new ToggleGroup();
@@ -91,18 +90,22 @@ public class AppearancePoll {
 				MainGameRunner.myChar.setHairColor(myHairColor);
 				MainGameRunner.myChar.setHairLength(myHairLength);
 				MainGameRunner.myChar.setGlasses(hasGlasses);
-				MainGameRunner.myChar.setPicture(getSimilarImage(MainGameRunner.myChar));
-				if(MainGameRunner.myChar.getPicture() == null)
+				MainGameRunner.myChar
+						.setPicture(getSimilarImage(MainGameRunner.myChar));
+				if (MainGameRunner.myChar.getPicture() == null)
 					System.out.println("No image");
 				else
 					System.out.println("Set image");
+				root.getChildren().remove(bottomContent);
+				root.getChildren().remove(characterInfo.getBorderPane());
 				characterInfo.update();
 				root.add(characterInfo.getBorderPane(), 0, 1);
-				//stage.close();
+				stage.close();
 			}
 
 			private ImageView getSimilarImage(Protagonist myChar) {
-				return MainGameRunner.possibleCharacters.getSimilarImage(myChar);
+				return MainGameRunner.possibleCharacters
+						.getSimilarImage(myChar);
 			}
 		});
 		pollPane.add(confirm, 2, 2);

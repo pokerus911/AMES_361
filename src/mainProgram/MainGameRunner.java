@@ -28,7 +28,7 @@ public class MainGameRunner extends Application {
 	public static Protagonist myChar;
 	public BorderPane bottomContent;
 	public static CharacterImages possibleCharacters;
-	
+
 	public CharacterInfoDisplay characterInfo;
 	private StageBuilder myBuilder;
 
@@ -53,20 +53,6 @@ public class MainGameRunner extends Application {
 		}
 	}
 
-//	private BorderPane createCharacterInfoDisplay() {
-//		characterInfo = new BorderPane();
-//		Pane characterPicture = new Pane();
-//		characterPicture.getChildren().add(myChar.getPicture());
-//		Pane characterDescription = new Pane();
-//		characterDescription.getChildren().add(
-//				new Text(myChar.getPersonalityDescription()));
-//		characterPicture.setPrefWidth(XDIMENSION / 2);
-//		characterDescription.setPrefWidth(XDIMENSION / 2);
-//		characterInfo.setLeft(characterPicture);
-//		characterInfo.setRight(characterDescription);
-//		return characterInfo;
-//	}
-
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -82,20 +68,7 @@ public class MainGameRunner extends Application {
 		editAppearance.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				root.getChildren().remove(bottomContent);
-				root.getChildren().remove(characterInfo.getBorderPane());
-//				bottomContent = new BorderPane();
-//				bottomContent.setLeft(new ImageView(new Image(getClass()
-//						.getResourceAsStream("/images/MikasaTest.png"))));
-//				bottomContent.setRight(new Pane());
-				//bottomContent = createCharacterInfoDisplay();
-				
-				
-//				bottomContent = characterInfo.getBorderPane();				
-//				myBuilder.editAppearance(bottomContent);
-//				root.add(bottomContent, 0, 1);
-				
-				myBuilder.editAppearance(characterInfo, root);
+				myBuilder.editAppearance(bottomContent, characterInfo, root);
 			}
 
 		});
@@ -104,9 +77,7 @@ public class MainGameRunner extends Application {
 		editPersonality.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				root.getChildren().remove(bottomContent);
-				root.getChildren().remove(characterInfo.getBorderPane());
-				myBuilder.editPersonality(characterInfo, root);
+				myBuilder.editPersonality(bottomContent, characterInfo, root);
 			}
 
 		});
@@ -136,7 +107,7 @@ public class MainGameRunner extends Application {
 		toolBar.setPrefWidth(XDIMENSION);
 		return toolBar;
 	}
-	
+
 	public static Map<String, String> convertResourceBundleToMap(
 			ResourceBundle resource) {
 		Map<String, String> map = new HashMap<String, String>();

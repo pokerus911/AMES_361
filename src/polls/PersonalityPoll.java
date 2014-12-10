@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -37,7 +38,7 @@ public class PersonalityPoll {
 		personality.addAll(Arrays.asList(0, 0, 0, 0, 0));
 	}
 	
-	public Scene makePersonalityPoll(Stage stage, CharacterInfoDisplay characterInfo, GridPane root){
+	public Scene makePersonalityPoll(BorderPane bottomContent, Stage stage, CharacterInfoDisplay characterInfo, GridPane root){
 		GridPane grid = new GridPane();
 		grid.setPadding(new Insets(15, 12, 15, 12));
 		grid.setHgap(10);
@@ -148,11 +149,9 @@ public class PersonalityPoll {
 						}
 					}
 				}
-				findPersonalityType();
-				for(int x = 0; x < personality.size(); x++){
-					System.out.println("Personality " + x + ": " + personality.get(x));
-				}
 				MainGameRunner.myChar.setPersonality(findPersonalityType());
+				root.getChildren().remove(bottomContent);
+				root.getChildren().remove(characterInfo.getBorderPane());
 				root.add(characterInfo.getBorderPane(), 0, 1);
 				stage.close();
 				characterInfo.update();

@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import javafx.scene.control.Button;
 
-public class PersonalityOption extends Button{
+public class PersonalityOption extends Button {
 	int myTsundere, myYandere, myKuudere, myDandere, myDeredere;
-	public PersonalityOption(String text, int tsundereCount, int yandereCount, int kuudereCount, int dandereCount, int deredereCount){
+
+	public PersonalityOption(String text, int tsundereCount, int yandereCount,
+			int kuudereCount, int dandereCount, int deredereCount) {
 		super(text);
 		myTsundere = tsundereCount;
 		myYandere = yandereCount;
@@ -14,8 +16,8 @@ public class PersonalityOption extends Button{
 		myDandere = dandereCount;
 		myDeredere = deredereCount;
 	}
-	
-	public ArrayList<Integer> getPersonalityScore(){
+
+	public ArrayList<Integer> getPersonalityScore() {
 		ArrayList<Integer> personalityScore = new ArrayList<Integer>();
 		personalityScore.add(myTsundere);
 		personalityScore.add(myYandere);
