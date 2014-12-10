@@ -1,5 +1,8 @@
 package mainProgram;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public enum Personality {
 	NORMAL, TSUNDERE, YANDERE, KUUDERE, DANDERE, DEREDERE;
 
@@ -21,4 +24,22 @@ public enum Personality {
 	        }
 	       return "Error creating a personality description.";
 	 }
+	
+	public ImageView getImage(){
+		switch (this) {
+		case NORMAL:
+            return new ImageView();
+       case TSUNDERE:
+            return new ImageView(new Image(getClass().getResourceAsStream("/images/Tsundere.png")));
+       case YANDERE:
+      	  return new ImageView(new Image(getClass().getResourceAsStream("/images/Yandere.png")));
+       case KUUDERE:
+      	  return new ImageView(new Image(getClass().getResourceAsStream("/images/Kuudere.png")));
+       case DANDERE:
+      	 return new ImageView(new Image(getClass().getResourceAsStream("/images/Dandere.png")));
+       case DEREDERE:
+      	 return new ImageView(new Image(getClass().getResourceAsStream("/images/Deredere.png")));
+		}
+		return null;
+	}
 }
