@@ -88,7 +88,9 @@ public class AppearancePoll {
 		confirm.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				MainGameRunner.myChar = new Protagonist(myHairColor, myHairLength, hasGlasses, MainGameRunner.myChar.getPersonality());
+				MainGameRunner.myChar.setHairColor(myHairColor);
+				MainGameRunner.myChar.setHairLength(myHairLength);
+				MainGameRunner.myChar.setGlasses(hasGlasses);
 				MainGameRunner.myChar.setPicture(getSimilarImage(MainGameRunner.myChar));
 				if(MainGameRunner.myChar.getPicture() == null)
 					System.out.println("No image");
@@ -96,7 +98,7 @@ public class AppearancePoll {
 					System.out.println("Set image");
 				characterInfo.update();
 				root.add(characterInfo.getBorderPane(), 0, 1);
-				//stage.close();
+				stage.close();
 			}
 
 			private ImageView getSimilarImage(Protagonist myChar) {

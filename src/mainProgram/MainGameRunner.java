@@ -1,5 +1,9 @@
 package mainProgram;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -100,7 +104,9 @@ public class MainGameRunner extends Application {
 		editPersonality.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				myBuilder.editPersonality();
+				root.getChildren().remove(bottomContent);
+				root.getChildren().remove(characterInfo.getBorderPane());
+				myBuilder.editPersonality(characterInfo, root);
 			}
 
 		});
@@ -129,5 +135,17 @@ public class MainGameRunner extends Application {
 		toolBar.getItems().addAll(mainMenu);
 		toolBar.setPrefWidth(XDIMENSION);
 		return toolBar;
+	}
+	
+	public static Map<String, String> convertResourceBundleToMap(
+			ResourceBundle resource) {
+		Map<String, String> map = new HashMap<String, String>();
+
+		Enumeration<String> keys = resource.getKeys();
+		while (keys.hasMoreElements()) {
+			String key = keys.nextElement();
+			map.put(key, resource.getString(key));
+		}
+		return map;
 	}
 }

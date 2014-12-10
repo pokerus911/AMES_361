@@ -1,5 +1,6 @@
 package mainProgram;
 
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -25,8 +26,10 @@ public class CharacterInfoDisplay {
 	public void update() {
 		characterPicture.getChildren().clear();
 		characterPicture.getChildren().add(MainGameRunner.myChar.getPicture());
+		characterPicture.setMaxWidth(MainGameRunner.XDIMENSION / 2);
 		characterDescription.getChildren().clear();
 		characterDescription.getChildren().add(
-				new Text(MainGameRunner.myChar.getPersonalityDescription()));
+				new Label(MainGameRunner.myChar.getPersonalityDescription()));
+		characterDescription.setPrefWidth(MainGameRunner.XDIMENSION / 2);
 	}
 }

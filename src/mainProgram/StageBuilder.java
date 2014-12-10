@@ -1,6 +1,7 @@
 package mainProgram;
 
 import polls.AppearancePoll;
+import polls.PersonalityPoll;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -11,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class StageBuilder {
@@ -37,9 +39,15 @@ public class StageBuilder {
 
 	}
 
-	public void editPersonality() {
+	public void editPersonality(CharacterInfoDisplay characterInfo, GridPane root) {
 		System.out.println("Personality");
-
+		Stage pollStage = new Stage();
+		pollStage.setTitle("Personality Quiz!");
+		
+		PersonalityPoll personalityPoll = new PersonalityPoll();
+		pollStage.setScene(personalityPoll.makePersonalityPoll(pollStage, characterInfo, root));
+		pollStage.setHeight(450);
+		pollStage.show();
 	}
 
 	public void generateRomance(Protagonist myChar) {
